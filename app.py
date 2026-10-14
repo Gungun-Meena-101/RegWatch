@@ -77,8 +77,8 @@ if pdf and st.button("Analyse", type="primary"):
                      "Numbers verified": "Yes" if nv else "No"})
         gherkins.append(ob.get("gherkin", ""))
 
-    review = (not verified) or o.get("confidence", 0) < 1.0 or len(q) < 35 or bad_ob > 0 \
-         or not re.search(r"bank|regulated entit", q, re.I)
+   review = (not verified) or o.get("confidence", 0) < 1.0 or len(q) < 35 or bad_ob > 0 \
+         or not re.search(r"\bbanks?\b|regulated entit", q, re.I)
 
     if o["relevant"]: st.success("✅ Relevant for Commercial Banks")
     else: st.info("⚪ Not relevant for Commercial Banks")
